@@ -32,8 +32,8 @@ public class MealPlanController {
 	
 	//This was first way I programmed it, but I don't think it's as common practice.
 //	@GetMapping("/week")
-//	public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions) {
-//		return mealPlanService.getWeekMeals(numCalories, diet, exclusions);
+//	public ResponseEntity<WeekResponse> getWeekMeals(String targetCalories, String diet, String exclude) {
+//		return mealPlanService.getWeekMeals(targetCalories, diet, exclude);
 //	}
 
 }

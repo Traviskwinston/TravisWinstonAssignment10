@@ -22,12 +22,12 @@ public class MealPlanService {
 	 @Value("${spoonacular.urls.mealplan}")
 	 private String mealPlanEndpoint;
 
-	 public DayResponse getDayMeals(String numCalories, String diet, String exclusions) {
+	 public DayResponse getDayMeals(String targetCalories, String diet, String exclude) {
     	URI uri = UriComponentsBuilder.fromHttpUrl(baseUrl + mealPlanEndpoint)
 									  .queryParam("timeFrame", "day")
-									  .queryParam("numCalories", numCalories)
+									  .queryParam("targetCalories", targetCalories)
 									  .queryParam("diet", diet)
-									  .queryParam("exclusions", exclusions)
+									  .queryParam("exclude", exclude)
 									  .queryParam("apiKey", "14ae6605b0ab43658e9241902a17a7da")
 									  .build()
 									  .toUri();
@@ -37,12 +37,12 @@ public class MealPlanService {
     	return dayResponse;
 	 }
   
-	 public WeekResponse getWeekMeals(String numCalories, String diet, String exclusions) {
+	 public WeekResponse getWeekMeals(String targetCalories, String diet, String exclude) {
 	    	URI uri = UriComponentsBuilder.fromHttpUrl(baseUrl + mealPlanEndpoint)
 										  .queryParam("timeFrame", "week")
-										  .queryParam("numCalories", numCalories)
+										  .queryParam("targetCalories", targetCalories)
 										  .queryParam("diet", diet)
-										  .queryParam("exclusions", exclusions)
+										  .queryParam("exclude", exclude)
 										  .queryParam("apiKey", "14ae6605b0ab43658e9241902a17a7da")
 										  .build()
 										  .toUri();
@@ -53,12 +53,12 @@ public class MealPlanService {
 	}
 	 
 	 //This was the first way I got it to work, but I Think it is not common practice to structure it like this.
-//	 public ResponseEntity<WeekResponse> getWeekMeals(String numCalories, String diet, String exclusions) {
+//	 public ResponseEntity<WeekResponse> getWeekMeals(String targetCalories, String diet, String exclude) {
 //    	URI uri = UriComponentsBuilder.fromHttpUrl("https://api.spoonacular.com/mealplanner/generate")
 //									  .queryParam("timeFrame", "week")
-//									  .queryParam("numCalories", numCalories)
+//									  .queryParam("targetCalories", targetCalories)
 //									  .queryParam("diet", diet)
-//									  .queryParam("exclusions", exclusions)
+//									  .queryParam("exclude", exclude)
 //									  .queryParam("apiKey", "14ae6605b0ab43658e9241902a17a7da")
 //									  .build()
 //									  .toUri();
